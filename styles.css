@@ -1,0 +1,433 @@
+:root {
+  --bg-0: #0f0c0a;
+  --bg-1: #18120f;
+  --stone-1: #2d2621;
+  --stone-2: #3a322c;
+  --stone-3: #4b4139;
+  --mortar: #1f1a16;
+  --text: #efe6d3;
+  --muted: #b9ab91;
+  --torch: #f59e0b;
+  --ember: #dc2626;
+  --mana: #22d3ee;
+  --danger: #fb7185;
+  --border: #786454;
+  --pixel-shadow: 4px 4px 0 #090706;
+  font-family: "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background-color: var(--bg-0);
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22) 50%, transparent 50%),
+    linear-gradient(rgba(0, 0, 0, 0.16) 50%, transparent 50%),
+    linear-gradient(0deg, var(--bg-0), var(--bg-1));
+  background-size: 8px 8px, 8px 8px, 100% 100%;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      var(--stone-1),
+      var(--stone-1) 10px,
+      var(--stone-2) 10px,
+      var(--stone-2) 20px
+    );
+  border: 3px solid var(--border);
+  box-shadow: var(--pixel-shadow);
+  padding: 12px;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 6px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #bfa487, transparent);
+  opacity: 0.7;
+}
+
+h2, h3 {
+  margin-top: 0;
+  color: #ffd08a;
+  text-shadow: 2px 2px 0 #1b1207;
+}
+
+.full-width { grid-column: 1 / -1; }
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+  border-color: #9c6b35;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #ffcf70;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #3b210d;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: #dac8aa;
+}
+
+.hero-form {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(220px, 320px) 180px;
+  gap: 8px;
+  align-items: end;
+}
+
+.hero-inputs label {
+  margin-top: 0;
+}
+
+.hero-form button {
+  margin-top: 0;
+  width: 100%;
+}
+
+.sprite-placeholder {
+  min-width: 130px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sprite-placeholder svg {
+  width: 96px;
+  height: 96px;
+  border: 2px dashed #d97706;
+  background: #1a1410;
+  image-rendering: pixelated;
+}
+
+#party-banner-avatar {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #d97706;
+  background: #1a1410;
+  object-fit: cover;
+  display: none;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #e8d7b8;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #6b5a4a;
+  background: #15100c;
+  color: var(--text);
+  font-family: inherit;
+}
+
+input::placeholder { color: #8e7e66; }
+
+button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #9a5b11;
+  background: linear-gradient(180deg, #fbbf24, #d97706);
+  color: #2d1707;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 #ffdca2;
+  box-shadow: 3px 3px 0 #3f2309;
+}
+
+button:hover { filter: brightness(1.05); }
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.guild-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guild-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guild-header h2 {
+  margin: 0;
+}
+
+.guild-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guild-nav-btn {
+  margin: 0;
+  width: 42px;
+  padding: 8px 0;
+  box-shadow: 2px 2px 0 #3f2309;
+}
+
+.guild-page {
+  color: #f5deb3;
+  font-size: 13px;
+  min-width: 52px;
+  text-align: center;
+}
+
+.oracle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.story-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.card {
+  background: linear-gradient(180deg, #3e342d, #302821);
+  border: 2px solid #7b6656;
+  padding: 8px;
+}
+
+.guild-card .status {
+  color: #f9deb2;
+  font-size: 12px;
+}
+
+.stat-chart-wrap {
+  margin: 6px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.spider-chart {
+  width: 132px;
+  height: 132px;
+}
+
+.spider-ring {
+  fill: none;
+  stroke: #806a56;
+  stroke-width: 1;
+}
+
+.spider-axis {
+  stroke: #6e5b4b;
+  stroke-width: 1;
+}
+
+.spider-shape {
+  fill: rgba(34, 211, 238, 0.35);
+  stroke: #22d3ee;
+  stroke-width: 1.6;
+}
+
+.spider-label {
+  fill: #e7d8ba;
+  font-size: 7px;
+  text-anchor: middle;
+}
+
+.guild-sprite {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #8f735f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  background: #1d1712;
+  font-size: 20px;
+}
+
+.guild-sprite-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 8px;
+}
+
+.guild-sprite-img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 2px solid #8f735f;
+  background: #1d1712;
+  image-rendering: pixelated;
+}
+
+.guild-attack-badge {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border: 2px solid #a4743f;
+  background: #1d1712;
+  box-shadow: 2px 2px 0 #3f2309;
+}
+
+.guild-card.fallen {
+  filter: grayscale(1) brightness(0.82);
+  opacity: 0.9;
+}
+
+.boss-art {
+  width: 100%;
+  max-height: 130px;
+  object-fit: cover;
+  border: 2px solid #8f735f;
+  margin-bottom: 8px;
+  background: #1d1712;
+  image-rendering: pixelated;
+}
+
+.scene-card {
+  min-height: 98px;
+}
+
+.scene-image-placeholder {
+  height: 52px;
+  border: 2px dashed #a4743f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  color: #d8bc95;
+  font-size: 12px;
+}
+
+.summary-box p {
+  margin: 8px 0;
+}
+
+.card h4 {
+  margin: 0 0 6px;
+  color: #ffd08a;
+}
+
+.timeline {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.timeline li {
+  margin-bottom: 8px;
+}
+
+.story {
+  min-height: 160px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.empty-state { color: var(--muted); }
+
+.loading .progress-wrap {
+  background: #140f0c;
+  border: 2px solid #5b4b3e;
+  margin: 10px 0;
+  height: 18px;
+  overflow: hidden;
+}
+
+.loading .progress-bar {
+  width: 40%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #f59e0b,
+    #f59e0b 8px,
+    #dc2626 8px,
+    #dc2626 16px
+  );
+  animation: scan 1.2s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.error {
+  margin-top: 12px;
+  border-color: #be123c;
+  background: #3f1d2e;
+}
+
+.hidden { display: none; }
+
+@media (max-width: 980px) {
+  .hero-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-form button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-form {
+    grid-template-columns: 1fr;
+  }
+
+  .guild-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Guild Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="panel hero">
+      <div class="hero-left">
+        <h1 id="party-name">⚔️ GIT GUILD</h1>
+        <p>Past Lore, Present Guild, Future Oracle.</p>
+
+        <form id="analyze-form" class="hero-form">
+          <div class="hero-inputs">
+            <label for="repo">GitHub URL</label>
+            <input id="repo" name="repo" value="https://github.com/rohan3107/testpy" placeholder="https://github.com/org/project" required />
+          </div>
+          <div class="hero-inputs">
+            <label for="token">GitHub PAT</label>
+            <input id="token" name="token" type="password" value="" placeholder="ghp_xxx" />
+          </div>
+          <button id="submit-btn" type="submit">Forge Campaign</button>
+        </form>
+        <p class="hint">Public repos work without PAT. For private repos or higher API limits, add PAT.</p>
+      </div>
+      <div class="sprite-placeholder" aria-hidden="true">
+        <img id="party-banner-avatar" src="" alt="Party banner avatar" />
+        <svg id="party-banner-fallback" viewBox="0 0 96 96" role="img">
+          <rect x="0" y="0" width="96" height="96" fill="#1f2937"/>
+          <rect x="16" y="16" width="64" height="64" fill="#4b5563"/>
+          <rect x="30" y="24" width="36" height="8" fill="#93c5fd"/>
+          <rect x="24" y="38" width="48" height="30" fill="#f59e0b"/>
+          <rect x="12" y="78" width="72" height="8" fill="#22c55e"/>
+        </svg>
+        <span id="party-banner-label">Party Banner</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel full-width">
+        <div class="guild-header">
+          <h2>🧙 Guild Hall</h2>
+          <div class="guild-nav" aria-label="Guild Hall navigation">
+            <button id="guild-prev" class="guild-nav-btn" type="button" aria-label="Previous members">◀</button>
+            <span id="guild-page" class="guild-page">0 / 0</span>
+            <button id="guild-next" class="guild-nav-btn" type="button" aria-label="Next members">▶</button>
+          </div>
+        </div>
+        <div id="party" class="cards guild-cards empty-state">No guild members yet.</div>
+      </section>
+
+      <section class="panel">
+        <h2>📜 Team Summary</h2>
+        <div id="team-summary" class="summary-box empty-state">Team summary will appear here.</div>
+      </section>
+
+      <section class="panel">
+        <h2>🗺️ Campaign Timelines</h2>
+        <ul id="timeline" class="timeline empty-state">
+          <li>Major milestones will appear here.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>🐉 Boss Battles</h2>
+        <div id="bosses" class="cards empty-state">No boss encounters yet.</div>
+      </section>
+
+      <section class="panel full-width">
+        <h2>📖 Story</h2>
+        <div id="story-images" class="story-images empty-state">Scene placeholders will appear here.</div>
+        <article id="story" class="story empty-state">Story output will appear here after analysis.</article>
+      </section>
+
+      <section class="panel full-width">
+        <h2>🔮 The Oracle (Campaign Ahead)</h2>
+        <div id="oracle" class="oracle-grid empty-state">Predictive insights will appear here.</div>
+      </section>
+    </main>
+
+    <section id="loading" class="panel loading hidden" aria-live="polite">
+      <h3>Scanning Git History...</h3>
+      <div class="progress-wrap">
+        <div class="progress-bar"></div>
+      </div>
+      <p id="loading-text">Gathering commits, PRs, contributor signals, and consulting The Oracle.</p>
+    </section>
+
+    <section id="error" class="panel error hidden"></section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
